@@ -1,9 +1,10 @@
 interface NavDropdown {
   title: string;
   titleHref: string;
-  description?: string;
+  description: string;
   links: { label: string; href: string; external?: boolean }[];
-  quickLinks?: { label: string; href: string; icon?: string; external?: boolean }[];
+  items?: { label: string; href: string; external?: boolean }[];
+  quickLinks?: { label: string; href: string; icon: string; external?: boolean }[];
 }
 
 interface NavItem {
