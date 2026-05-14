@@ -22,10 +22,13 @@ const socialLinks = [
 interface SocialLinksProps {
   /** 'row' = horizontal (Topnav desktop), 'column' = vertical (MobileNav) */
   layout?: 'row' | 'column';
+  /** 'dark' = white text on dark bg (default), 'light' = dark text on light bg */
+  theme?: 'dark' | 'light';
   onClick?: () => void;
 }
 
-export default function SocialLinks({ layout = 'row', onClick }: SocialLinksProps) {
+export default function SocialLinks({ layout = 'row', theme = 'dark', onClick }: SocialLinksProps) {
+  const isLight = theme === 'light';
   return (
     <ul
       className={[
@@ -50,10 +53,19 @@ export default function SocialLinks({ layout = 'row', onClick }: SocialLinksProp
             className={[
               'text-4xl! md:text-xl! inline-flex items-center gap-2',
               'text-[1.4rem] leading-[1.4] no-underline whitespace-nowrap',
-              'px-[1.2rem] py-[1rem] border border-white rounded-[2px]',
+              'px-[1.2rem] py-[1rem] rounded-[2px]',
               'transition-[background,color,border-color] duration-350',
-              'hover:bg-brand-sky hover:text-brand-navy hover:border-brand-sky',
-              s.filled ? 'bg-white text-brand-navy' : 'bg-transparent text-white',
+              isLight
+                ? [
+                    'border border-[#024979]',
+                    'hover:bg-[#024979] hover:text-white hover:border-[#024979]',
+                    s.filled ? 'bg-[#024979] text-white' : 'bg-transparent text-[#024979]',
+                  ].join(' ')
+                : [
+                    'border border-white',
+                    'hover:bg-brand-sky hover:text-brand-navy hover:border-brand-sky',
+                    s.filled ? 'bg-white text-brand-navy' : 'bg-transparent text-white',
+                  ].join(' '),
             ].join(' ')}
           >
             {s.label}

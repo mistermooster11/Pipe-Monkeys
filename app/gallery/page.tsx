@@ -83,7 +83,7 @@ function GalleryCard({ item, delay }: { item: typeof galleryItems[number]; delay
             display: "inline-block",
             marginBottom: "1rem",
             padding: "0.3rem 1rem",
-            background: "var(--ia-sky, #a1c5d3)",
+            background: "var(--ia-sky, #50B6EA)",
             borderRadius: "4px",
             fontSize: "1.2rem",
           }}
@@ -97,7 +97,7 @@ function GalleryCard({ item, delay }: { item: typeof galleryItems[number]; delay
             <div
               style={{
                 background: `url(${item.before}) no-repeat 50% 50% / cover`,
-                backgroundColor: "#1a2a3a",
+                backgroundColor: "#013560",
                 height: "16rem",
                 borderRadius: "4px",
               }}
@@ -111,7 +111,7 @@ function GalleryCard({ item, delay }: { item: typeof galleryItems[number]; delay
             <div
               style={{
                 background: `url(${item.after}) no-repeat 50% 50% / cover`,
-                backgroundColor: "#1a2a3a",
+                backgroundColor: "#013560",
                 height: "16rem",
                 borderRadius: "4px",
               }}

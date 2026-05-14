@@ -46,7 +46,7 @@ export default function Announcements() {
                   display: 'block',
                   width: '100%',
                   height: '100%',
-                  backgroundColor: '#101d2b',
+                  backgroundColor: '#50B6EA',
                 }}
               />
               {/* [TODO: Replace with Pipe Monkeys team or job site photo] */}

@@ -18,10 +18,10 @@
 /* ── 4. Accordion item ── */
 .accordion-item-flex {
   padding: 0;
-  background: rgba(242,242,242,.4);
+  background: rgba(254,254,240,.4);
 }
 .accordion-item-flex:nth-child(odd) {
-  background: rgba(242,242,242,.4);
+  background: rgba(254,254,240,.4);
   border: none;
 }
 .accordion-item-flex:nth-child(even) {
@@ -35,7 +35,7 @@
   padding: 3rem 7rem 3rem 6.5rem;
   position: relative;
   display: block;
-  color: #172535;
+  color: #252525;
   cursor: pointer;
   transition: color .35s;
 }
@@ -45,10 +45,10 @@
   right: 6rem;
   transform: translate(-50%, -50%);
   font-size: 2rem;
-  color: #fd6a3c;
+  color: #D6000B;
   transition: transform .35s;
 }
-.accordion-title-flex.current { color: #3f5e9d; }
+.accordion-title-flex.current { color: #024979; }
 .accordion-title-flex.current i { transform: translate(-50%, -50%) scaleY(-1); }
 
 /* ── 6. Accordion info (collapsible) ── */
@@ -73,12 +73,12 @@
   vertical-align: middle;
 }
 .accordion-info-flex table thead th {
-  background: #172535;
+  background: #024979;
   color: #fff;
   font-weight: 600;
 }
 .accordion-info-flex table tbody tr:nth-child(even) td {
-  background: rgba(242,242,242,.5);
+  background: rgba(254,254,240,.5);
 }
 
 /* ── 8. Contact Us section (ia-bg-sky) ── */
