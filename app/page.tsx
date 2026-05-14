@@ -1,6 +1,7 @@
 import Hero from "@/components/custom/Hero";
 import HomeSectionWithLine from "@/components/custom/HomeSectionWithLine";
 import Testimonial from "@/components/custom/Testimonial";
+import ReadyToStart from "@/components/custom/ReadyToStart";
 
 export default function Home() {
   return (
@@ -11,6 +12,7 @@ export default function Home() {
         <Hero />
         <HomeSectionWithLine />
         <Testimonial />
+        <ReadyToStart />
       </main>
     </>
   );

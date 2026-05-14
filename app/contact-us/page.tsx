@@ -31,14 +31,9 @@ const serviceAreas = [
 
 /* ── Sub-components ─────────────────────────────────────────── */
 
-function ServiceAreaCard({ area, delay }: { area: typeof serviceAreas[number]; delay: string }) {
-  const ref = useRef<HTMLDivElement>(null);
-  const inView = useInView(ref, { once: true, margin: "0px 0px -60px 0px" });
-  const vis = inView ? " is-visible" : "";
-
+function ServiceAreaCard({ area, delay, vis }: { area: typeof serviceAreas[number]; delay: string; vis: string }) {
   return (
     <div
-      ref={ref}
       className={`user-grid-item user-grid-item--three fadeInUpS wow${vis}`}
       style={{ animationDelay: delay }}
     >
@@ -58,12 +53,14 @@ function ServiceAreaCard({ area, delay }: { area: typeof serviceAreas[number]; d
 export default function ContactPage() {
   const heroRef = useRef<HTMLDivElement>(null);
   const heroInView = useInView(heroRef, { once: true, margin: "0px 0px -60px 0px" });
-  const areasRef = useRef<HTMLDivElement>(null);
-  const areasInView = useInView(areasRef, { once: true, margin: "0px 0px -60px 0px" });
   const formRef = useRef<HTMLDivElement>(null);
   const formInView = useInView(formRef, { once: true, margin: "0px 0px -60px 0px" });
+  const areasRef = useRef<HTMLDivElement>(null);
+  const areasInView = useInView(areasRef, { once: true, margin: "0px 0px -60px 0px" });
 
   const vis = heroInView ? " is-visible" : "";
+  const formVis = formInView ? " is-visible" : "";
+  const areasVis = areasInView ? " is-visible" : "";
 
   return (
     <main className="pt-76 max-[1150px]:pt-[6.2rem]">
@@ -78,7 +75,7 @@ export default function ContactPage() {
               <span className="post post-page current-item">Contact Us</span>
             </div>
             <h1 className={`ia-white ia-margin-0 fadeInUpS wow${vis}`} style={{ animationDelay: "0.1s" }}>
-              Get in Touch
+              Contact Us
             </h1>
           </div>
         </div>
@@ -88,12 +85,12 @@ export default function ContactPage() {
 
             {/* Left: overview */}
             <div className={`hero-org__left wow${vis}`}>
-              <div className={`sub-heading fadeInUpS wow${vis}`}>Reach Us</div>
+              <div className={`sub-heading fadeInUpS wow${vis}`}>Get in Touch</div>
               <div className={`content-entry fadeInUpS wow${vis}`} style={{ animationDelay: "0.1s" }}>
                 <p>
-                  Call us at <strong>(718) 749-1830</strong> or fill out the form
-                  below. Most calls are answered immediately — same-day scheduling
-                  available seven days a week.
+                  Fill out the form below or call us directly at <strong>(718) 749-1830</strong>.
+                  We respond promptly — often within the hour. Same-day scheduling is available
+                  seven days a week.
                 </p>
               </div>
             </div>
@@ -111,49 +108,19 @@ export default function ContactPage() {
                   </a>
                 </li>
                 <li className={`fadeInUpS wow${vis}`} style={{ animationDelay: "0.2s" }}>
-                  <a className="ia-link ia-link--arrow" href="/general-faqs">
-                    <i className="icon-link" />
-                    <span>View FAQs</span>
-                  </a>
-                </li>
-                <li className={`fadeInUpS wow${vis}`} style={{ animationDelay: "0.3s" }}>
                   <a className="ia-link ia-link--arrow" href="/craft-catalog">
                     <i className="icon-link" />
                     <span>Our Services</span>
                   </a>
                 </li>
+                <li className={`fadeInUpS wow${vis}`} style={{ animationDelay: "0.3s" }}>
+                  <a className="ia-link ia-link--arrow" href="/general-faqs">
+                    <i className="icon-link" />
+                    <span>View FAQs</span>
+                  </a>
+                </li>
               </ul>
             </div>
-          </div>
-        </div>
-      </div>
-
-      {/* ── Service Areas ── */}
-      <div
-        ref={areasRef}
-        className={`user-grid-small fadeIn wow${areasInView ? " is-visible" : ""} flex-module`}
-      >
-        <div className="inner inner--slim-1172">
-          <h2
-            className={`h3 fadeInUpS wow${areasInView ? " is-visible" : ""}`}
-            style={{ animationDelay: "0.1s" }}
-          >
-            Service Areas
-          </h2>
-          <div
-            className={`content-entry fadeInUpS wow${areasInView ? " is-visible" : ""}`}
-            style={{ animationDelay: "0.2s" }}
-          >
-            <p>
-              We serve all of Brooklyn, Queens, and Nassau County. If you&apos;re
-              not sure whether we cover your neighborhood, just call — we almost
-              certainly do.
-            </p>
-          </div>
-          <div className="user-grid-list user-grid-list--small">
-            {serviceAreas.map((area, i) => (
-              <ServiceAreaCard key={area.region} area={area} delay={`${i * 0.1}s`} />
-            ))}
           </div>
         </div>
       </div>
@@ -164,7 +131,7 @@ export default function ContactPage() {
           <div className="content-block-head wide">
             <h2
               id="getstarted"
-              className={`h3 fadeInUpS wow${formInView ? " is-visible" : ""}`}
+              className={`h3 fadeInUpS wow${formVis}`}
               style={{ animationDelay: "0.1s" }}
             >
               Schedule Service or Ask a Question
@@ -173,10 +140,10 @@ export default function ContactPage() {
           <div className="content-block-in wide">
             <div className="content-block-text content-entry p2 full-width">
               <p>
-                Call us at <strong>(718) 749-1830</strong> or complete the form
-                below and we&apos;ll follow up fast — usually within the hour.
+                Call us at <strong>(718) 749-1830</strong> or complete the form below and
+                we&apos;ll follow up fast — usually within the hour.
               </p>
-              {/* TODO: Replace with Pipe Monkeys contact form embed (HubSpot, Gravity Forms, etc.) */}
+              {/* TODO: Replace with Pipe Monkeys contact form embed */}
               <iframe
                 src="https://share.hsforms.com/2EvjaHNBmQBaJ9-YEhkKnagt3bsz"
                 width="100%"
@@ -187,6 +154,36 @@ export default function ContactPage() {
                 title="Contact Pipe Monkeys"
               />
             </div>
+          </div>
+        </div>
+      </div>
+
+      {/* ── Service Areas ── */}
+      <div
+        ref={areasRef}
+        className={`user-grid-small fadeIn wow${areasVis} flex-module`}
+        style={{ background: "#FEFEF0" }}
+      >
+        <div className="inner inner--slim-1172">
+          <h2
+            className={`h3 fadeInUpS wow${areasVis}`}
+            style={{ animationDelay: "0.1s" }}
+          >
+            Service Areas
+          </h2>
+          <div
+            className={`content-entry fadeInUpS wow${areasVis}`}
+            style={{ animationDelay: "0.2s" }}
+          >
+            <p>
+              We serve all of Brooklyn, Queens, and Nassau County. If you&apos;re not sure
+              whether we cover your neighborhood, just call — we almost certainly do.
+            </p>
+          </div>
+          <div className="user-grid-list user-grid-list--small">
+            {serviceAreas.map((area, i) => (
+              <ServiceAreaCard key={area.region} area={area} delay={`${i * 0.1}s`} vis={areasVis} />
+            ))}
           </div>
         </div>
       </div>

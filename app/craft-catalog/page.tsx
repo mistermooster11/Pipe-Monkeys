@@ -1,17 +1,15 @@
-import CraftCatalogHero from "@/components/custom/craft-catalog/CraftCatalogHero";
-import CraftCatalogClient from "@/components/custom/craft-catalog/CraftCatalogClient";
+import ServicesGrid from "@/components/custom/craft-catalog/ServicesGrid";
 
 export const metadata = {
-  title: "Craft Catalog – NCCER",
+  title: "Our Services – Pipe Monkeys",
   description:
-    "NCCER offers a broad portfolio of curricula that spans a wide range of construction and maintenance disciplines to ensure organizations and learners of all backgrounds can find options to fit their needs.",
+    "Drain cleaning, hydro jetting, camera inspection, and more — Pipe Monkeys serves Brooklyn, Queens, and Nassau County.",
 };
 
 export default function CraftCatalogPage() {
   return (
     <main className="pt-76 max-[1150px]:pt-[6.2rem]">
-      <CraftCatalogHero />
-      <CraftCatalogClient />
+      <ServicesGrid />
     </main>
   );
 }
