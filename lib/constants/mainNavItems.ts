@@ -1,4 +1,19 @@
-export const mainNavItems = [
+interface NavDropdown {
+  title: string;
+  titleHref: string;
+  description?: string;
+  links: { label: string; href: string; external?: boolean }[];
+  quickLinks?: { label: string; href: string; icon?: string; external?: boolean }[];
+}
+
+interface NavItem {
+  label: string;
+  href: string | null;
+  external: boolean;
+  dropdown: NavDropdown | null;
+}
+
+export const mainNavItems: NavItem[] = [
   { label: "Home",     href: "/",               external: false, dropdown: null },
   { label: "Services", href: "/craft-catalog",  external: false, dropdown: null },
   { label: "FAQs",     href: "/general-faqs",   external: false, dropdown: null },
